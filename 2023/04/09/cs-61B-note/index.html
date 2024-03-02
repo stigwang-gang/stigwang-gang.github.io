@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="StigWang&#39;s code recording">
 <meta property="og:description" content="OVERRIDE VS OVERLOADoverride eg: when the interface contain this method ,you implements it and try to override the method for a new purpose 1234@Overridepublic void addFirst(Item x) &amp;#123;    insert(x">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/GitHub/Blog/source_posts/cs-61B-note/image-20230419133109776.png">
-<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/GitHub/Blog/source_posts/cs-61B-note/image-20230420133808622.png">
+<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230419133109776.png">
+<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230420133808622.png">
 <meta property="article:published_time" content="2023-04-09T06:58:57.384Z">
-<meta property="article:modified_time" content="2023-09-21T03:01:42.756Z">
+<meta property="article:modified_time" content="2024-01-29T21:57:14.102Z">
 <meta property="article:author" content="stigwang">
 <meta property="article:tag" content="-course">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/04/09/cs-61B-note/GitHub/Blog/source_posts/cs-61B-note/image-20230419133109776.png">
+<meta name="twitter:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230419133109776.png">
 
 <link rel="canonical" href="http://example.com/2023/04/09/cs-61B-note/">
 
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-09-21 11:01:42" itemprop="dateModified" datetime="2023-09-21T11:01:42+08:00">2023-09-21</time>
+                <time title="Modified: 2024-01-30 05:57:14" itemprop="dateModified" datetime="2024-01-30T05:57:14+08:00">2024-01-30</time>
               </span>
 
           
@@ -206,7 +206,7 @@
 
 <h2 id="dynamic-method-selection"><a href="#dynamic-method-selection" class="headerlink" title="dynamic method selection"></a><strong>dynamic method selection</strong></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LivingThing lt1;</span><br><span class="line"></span><br><span class="line">lt1= <span class="keyword">new</span> <span class="title class_">Fox</span>();</span><br><span class="line"></span><br><span class="line">Animal a1=lt1;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2023/04/09/cs-61B-note/GitHub\Blog\source_posts\cs-61B-note\image-20230419133109776.png" alt="image-20230419133109776"></p>
+<p><img src="/2023/04/09/cs-61B-note/image-20230419133109776.png" alt="image-20230419133109776"></p>
 <blockquote>
 <h3 id="A-Trap！！！！"><a href="#A-Trap！！！！" class="headerlink" title="A Trap！！！！"></a><font color="yellow">A Trap！！！！</font></h3><h3 id="This-is-a-overload-not-the-different-class-override"><a href="#This-is-a-overload-not-the-different-class-override" class="headerlink" title="This is a overload not the different class override"></a><strong><font color="red">This is a overload not the different class override</font></strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SLList&lt;String&gt; SP = <span class="keyword">new</span> <span class="title class_">SLList</span>&lt;String&gt;();</span><br><span class="line">List61B&lt;String&gt; LP = SP;</span><br><span class="line">SP.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;cool&quot;</span>);</span><br><span class="line">peek(SP);</span><br><span class="line">peek(LP);</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -235,7 +235,7 @@
 
 
 <p><font color="red">notice： you can omit the super when you call the no parameter method but if you call the method with parameter you must call the right super(x)with the right parameter.</font></p>
-<p><img src="/2023/04/09/cs-61B-note/GitHub\Blog\source_posts\cs-61B-note\image-20230420133808622.png" alt="image-20230420133808622"></p>
+<p><img src="/2023/04/09/cs-61B-note/image-20230420133808622.png" alt="image-20230420133808622"></p>
 <h1 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Poodle</span> <span class="variable">frank</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Poodle</span>(<span class="string">&quot;Frank&quot;</span>, <span class="number">5</span>);</span><br><span class="line"><span class="type">Malamute</span> <span class="variable">frankSr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Malamute</span>(<span class="string">&quot;Frank Sr.&quot;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Poodle</span> <span class="variable">largerPoodle</span> <span class="operator">=</span> (Poodle) maxDog(frank, frankSr); <span class="comment">// runtime exception!</span></span><br></pre></td></tr></table></figure>
 
 
@@ -278,7 +278,7 @@
       <i class="fa fa-chevron-left"></i> my-first-page
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/19/%E7%AE%97%E6%B3%95%E9%A2%98%E6%80%BB%E7%BB%93/" rel="next" title="sum up of leecode">
+    <a href="/2023/09/19/leecode-sum-up/" rel="next" title="sum up of leecode">
       sum up of leecode <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
