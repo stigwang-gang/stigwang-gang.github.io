@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="OVERRIDE VS OVERLOADoverride eg: when the interface contain this method ,you implements it and try to override the method for a new purpose 1234@Overridepublic void addFirst(Item x) &amp;#123;    insert(x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS-61B">
+<meta property="og:url" content="http://example.com/2023/04/09/cs-61B-note/index.html">
+<meta property="og:site_name" content="StigWang&#39;s code recording">
+<meta property="og:description" content="OVERRIDE VS OVERLOADoverride eg: when the interface contain this method ,you implements it and try to override the method for a new purpose 1234@Overridepublic void addFirst(Item x) &amp;#123;    insert(x">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230419133109776.png">
+<meta property="og:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230420133808622.png">
+<meta property="article:published_time" content="2023-04-09T06:58:57.384Z">
+<meta property="article:modified_time" content="2024-01-29T21:57:14.102Z">
+<meta property="article:author" content="stigwang">
+<meta property="article:tag" content="-course">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/09/cs-61B-note/image-20230419133109776.png">
+
+<link rel="canonical" href="http://example.com/2023/04/09/cs-61B-note/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CS-61B | StigWang's code recording</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">StigWang's code recording</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/09/cs-61B-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="stigwang">
+      <meta itemprop="description" content="show me the code！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StigWang's code recording">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS-61B
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-04-09 14:58:57" itemprop="dateCreated datePublished" datetime="2023-04-09T14:58:57+08:00">2023-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-01-30 05:57:14" itemprop="dateModified" datetime="2024-01-30T05:57:14+08:00">2024-01-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="OVERRIDE-VS-OVERLOAD"><a href="#OVERRIDE-VS-OVERLOAD" class="headerlink" title="OVERRIDE VS OVERLOAD"></a>OVERRIDE VS OVERLOAD</h1><p><strong>override eg: when the interface contain this method ,you implements it and try to override the method for a new purpose</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addFirst</span><span class="params">(Item x)</span> &#123;</span><br><span class="line">    insert(x, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>overload eg: the same named method but contains different parameter</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(List61B&lt;String&gt; list)</span> &#123;</span><br><span class="line">    System.out.println(list.getLast());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(SLList&lt;String&gt; list)</span> &#123;</span><br><span class="line">    System.out.println(list.getFirst());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="dynamic-method-selection"><a href="#dynamic-method-selection" class="headerlink" title="dynamic method selection"></a><strong>dynamic method selection</strong></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LivingThing lt1;</span><br><span class="line"></span><br><span class="line">lt1= <span class="keyword">new</span> <span class="title class_">Fox</span>();</span><br><span class="line"></span><br><span class="line">Animal a1=lt1;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/04/09/cs-61B-note/image-20230419133109776.png" alt="image-20230419133109776"></p>
+<blockquote>
+<h3 id="A-Trap！！！！"><a href="#A-Trap！！！！" class="headerlink" title="A Trap！！！！"></a><font color="yellow">A Trap！！！！</font></h3><h3 id="This-is-a-overload-not-the-different-class-override"><a href="#This-is-a-overload-not-the-different-class-override" class="headerlink" title="This is a overload not the different class override"></a><strong><font color="red">This is a overload not the different class override</font></strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SLList&lt;String&gt; SP = <span class="keyword">new</span> <span class="title class_">SLList</span>&lt;String&gt;();</span><br><span class="line">List61B&lt;String&gt; LP = SP;</span><br><span class="line">SP.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;cool&quot;</span>);</span><br><span class="line">peek(SP);</span><br><span class="line">peek(LP);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><strong>Interface inheritance (what): Simply tells what the subclasses should be able to do.</strong><ul>
+<li>EX) all lists should be able to print themselves, how they do it is up to them.</li>
+</ul>
+</li>
+<li><strong>Implementation inheritance (how): Tells the subclasses how they should behave.</strong><ul>
+<li>EX) Lists should print themselves exactly this way: by getting each element in order and then printing them.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Implementation inheritance is a relationship where a child class inherits behaviour implementation from a base class.</strong></p>
+<p><strong>Interface inheritance is when a child class only inherits the description of behaviour from the base class and provides the implementation itself.</strong></p>
+<p><strong>Implementation inheritance may sound nice and all but there are some drawbacks:</strong></p>
+<ul>
+<li>We are fallible humans, and we can’t keep track of everything, so it’s possible that you overrode a method but forgot you did.</li>
+<li>It may be hard to resolve conflicts in case two interfaces give conflicting default methods.</li>
+<li>It encourages overly complex code</li>
+</ul>
+<h1 id="extends-and-implements"><a href="#extends-and-implements" class="headerlink" title="extends and implements"></a>extends and implements</h1><h2 id="the-extends-keywords-defines-an-“is-a”-relationship-between-a-subclass-and-a-parent-class"><a href="#the-extends-keywords-defines-an-“is-a”-relationship-between-a-subclass-and-a-parent-class" class="headerlink" title="the extends keywords defines an “is-a” relationship between a subclass and a parent class"></a>the <code>extends</code> keywords defines an “is-a” relationship between a subclass and a parent class</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">VengefulSLList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//super();</span></span><br><span class="line">    deletedItems = <span class="keyword">new</span> <span class="title class_">SLList</span>&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">VengefulSLList</span><span class="params">(Item x)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(x);</span><br><span class="line">    deletedItems = <span class="keyword">new</span> <span class="title class_">SLList</span>&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><font color="red">notice： you can omit the super when you call the no parameter method but if you call the method with parameter you must call the right super(x)with the right parameter.</font></p>
+<p><img src="/2023/04/09/cs-61B-note/image-20230420133808622.png" alt="image-20230420133808622"></p>
+<h1 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Poodle</span> <span class="variable">frank</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Poodle</span>(<span class="string">&quot;Frank&quot;</span>, <span class="number">5</span>);</span><br><span class="line"><span class="type">Malamute</span> <span class="variable">frankSr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Malamute</span>(<span class="string">&quot;Frank Sr.&quot;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Poodle</span> <span class="variable">largerPoodle</span> <span class="operator">=</span> (Poodle) maxDog(frank, frankSr); <span class="comment">// runtime exception!</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Interface-and-abstract-class"><a href="#Interface-and-abstract-class" class="headerlink" title="Interface and abstract class"></a>Interface and abstract class</h1><p><strong>We’ve seen interfaces that can do a lot of cool things! They allow you to take advantage of interface inheritance and implementation inheritance. As a refresher, these are the qualities of interfaces:</strong></p>
+<ul>
+<li>All methods must be public.</li>
+<li>All variables must be public static final.</li>
+<li>Cannot be instantiated</li>
+<li>All methods are by default abstract unless specified to be <code>default</code></li>
+<li>Can implement more than one interface per class</li>
+</ul>
+<p>Below are the characteristics of abstract classes:</p>
+<ul>
+<li>Methods can be public or private</li>
+<li>Can have any types of variables</li>
+<li>Cannot be instantiated</li>
+<li>Methods are by default concrete unless specified to be <code>abstract</code></li>
+<li>Can only implement one per class</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/course/" rel="tag"># -course</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/05/my-first-page/" rel="prev" title="my-first-page">
+      <i class="fa fa-chevron-left"></i> my-first-page
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/19/leecode-sum-up/" rel="next" title="sum up of leecode">
+      sum up of leecode <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OVERRIDE-VS-OVERLOAD"><span class="nav-number">1.</span> <span class="nav-text">OVERRIDE VS OVERLOAD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic-method-selection"><span class="nav-number">1.1.</span> <span class="nav-text">dynamic method selection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Trap%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">A Trap！！！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#This-is-a-overload-not-the-different-class-override"><span class="nav-number">1.1.2.</span> <span class="nav-text">This is a overload not the different class override</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extends-and-implements"><span class="nav-number">2.</span> <span class="nav-text">extends and implements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-extends-keywords-defines-an-%E2%80%9Cis-a%E2%80%9D-relationship-between-a-subclass-and-a-parent-class"><span class="nav-number">2.1.</span> <span class="nav-text">the extends keywords defines an “is-a” relationship between a subclass and a parent class</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Casting"><span class="nav-number">3.</span> <span class="nav-text">Casting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-and-abstract-class"><span class="nav-number">4.</span> <span class="nav-text">Interface and abstract class</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">stigwang</p>
+  <div class="site-description" itemprop="description">show me the code！！！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stigwang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
